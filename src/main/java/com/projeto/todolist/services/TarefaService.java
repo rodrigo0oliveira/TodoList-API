@@ -2,11 +2,13 @@ package com.projeto.todolist.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projeto.todolist.entities.Tarefa;
+import com.projeto.todolist.repositories.FuncionarioRepository;
 import com.projeto.todolist.repositories.TarefaRepository;
 
 @Service
@@ -14,6 +16,9 @@ public class TarefaService {
 	
 	@Autowired
 	private TarefaRepository tarefaRepository;
+	
+	@Autowired
+	private FuncionarioRepository funcionarioRepository;
 	
 	public Tarefa insert(Tarefa tarefa ){
 		return tarefaRepository.save(tarefa);
@@ -36,6 +41,13 @@ public class TarefaService {
 	public Tarefa findById(Long id) {
 		Optional<Tarefa> tarefa = tarefaRepository.findById(id);
 		return tarefa.get();
+	}
+	
+	@SuppressWarnings("deprecation")
+	public Set<Tarefa> findByFuncionario(Long id){
+		Set<Tarefa> listaTarefa = funcionarioRepository.getById(id).getListaTarefas();
+		return listaTarefa;
+		
 	}
 	
 	private void update(Tarefa entity,Tarefa tarefa) {

@@ -1,5 +1,6 @@
 package com.projeto.todolist.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ public class FuncionarioService {
 	
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
+	
+	public List<Funcionario> findAll(){
+		return funcionarioRepository.findAll();
+	}
 	
 	public Funcionario insert(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);

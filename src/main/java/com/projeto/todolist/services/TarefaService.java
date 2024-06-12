@@ -34,8 +34,8 @@ public class TarefaService {
 	}
 	
 	public Tarefa findById(Long id) {
-		Optional<Tarefa> user = tarefaRepository.findById(id);
-		return user.get();
+		Optional<Tarefa> tarefa = tarefaRepository.findById(id);
+		return tarefa.get();
 	}
 	
 	private void update(Tarefa entity,Tarefa tarefa) {

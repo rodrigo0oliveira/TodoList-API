@@ -17,6 +17,7 @@ public class Funcionario implements Serializable{
 	
 	private Long id;
 	private String nome;
+	private String cargo;
 	
 	@OneToMany(mappedBy = "id.tarefa")
 	private Set<Tarefa> listaTarefas = new HashSet<>();
@@ -24,10 +25,11 @@ public class Funcionario implements Serializable{
 	public Funcionario() {
 	}
 
-	public Funcionario(Long id, String nome) {
+	public Funcionario(Long id, String nome,String cargo) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.cargo = cargo;
 	}
 
 	public Long getId() {
@@ -49,6 +51,15 @@ public class Funcionario implements Serializable{
 	public Set<Tarefa> getListaTarefas(){
 		return listaTarefas;
 	}
+	
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -66,6 +77,7 @@ public class Funcionario implements Serializable{
 		Funcionario other = (Funcionario) obj;
 		return Objects.equals(id, other.id);
 	}
+
 	
 	
 }

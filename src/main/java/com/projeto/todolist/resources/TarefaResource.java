@@ -36,12 +36,6 @@ public class TarefaResource {
 		return ResponseEntity.ok().body(tarefa);
 	}
 	
-	@GetMapping(value = "/{funcionario_id}")
-	public ResponseEntity<List<Tarefa>> findByIdFuncionario(@PathVariable Long id){
-		List<Tarefa> listaTarefa = tarefaService.findByFuncionario(id);
-		return ResponseEntity.ok().body(listaTarefa);
-		
-	}
 	
 	@PostMapping
 	public ResponseEntity<Tarefa> insert (@RequestBody Tarefa tarefa){

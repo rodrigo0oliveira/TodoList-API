@@ -1,10 +1,9 @@
 package com.projeto.todolist.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +25,7 @@ public class Funcionario implements Serializable{
 	private String cargo;
 	
 	@OneToMany(mappedBy = "funcionario")
-	private Set<Tarefa> listaTarefas = new HashSet<>();
+	private List<Tarefa> listaTarefas = new ArrayList<>();
 	
 	public Funcionario() {
 	}
@@ -54,7 +53,7 @@ public class Funcionario implements Serializable{
 		this.nome = nome;
 	}
 	
-	public Set<Tarefa> getListaTarefas(){
+	public List<Tarefa> getListaTarefas(){
 		return listaTarefas;
 	}
 	

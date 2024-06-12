@@ -2,8 +2,6 @@ package com.projeto.todolist.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,9 +41,9 @@ public class TarefaService {
 		return tarefa.get();
 	}
 	
-	@SuppressWarnings("deprecation")
-	public Set<Tarefa> findByFuncionario(Long id){
-		Set<Tarefa> listaTarefa = funcionarioRepository.getById(id).getListaTarefas();
+	
+	public List<Tarefa> findByFuncionario(Long id){
+		List<Tarefa> listaTarefa = funcionarioRepository.getReferenceById(id).getListaTarefas();
 		return listaTarefa;
 		
 	}

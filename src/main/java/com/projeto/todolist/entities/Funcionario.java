@@ -6,6 +6,9 @@ import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -15,11 +18,14 @@ public class Funcionario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nome;
 	private String cargo;
 	
-	@OneToMany(mappedBy = "id.tarefa")
+	@OneToMany(mappedBy = "funcionario")
 	private Set<Tarefa> listaTarefas = new HashSet<>();
 	
 	public Funcionario() {

@@ -53,7 +53,6 @@ public class TarefaService {
 	private void update(Tarefa entity,Tarefa tarefa) {
 		entity.setName(tarefa.getName());
 		entity.setDescricao(tarefa.getDescricao());
-		entity.setTarefaStatus(tarefa.getTarefaStatus());
 		entity.setFuncionario(tarefa.getFuncionario());
 		entity.setDescricao(tarefa.getDescricao());
 		

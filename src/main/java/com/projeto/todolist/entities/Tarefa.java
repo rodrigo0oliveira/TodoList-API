@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
-import com.projeto.todolist.enums.TarefaStatus;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,10 +21,11 @@ public class Tarefa implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 	private String descricao;
 	private Date dataVencimento;
-	private Integer tarefaStatus;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
@@ -35,14 +34,13 @@ public class Tarefa implements Serializable{
 	public Tarefa() {
 	}
 
-	public Tarefa(Long id, String name, String descricao, Date dataVencimento, Funcionario funcionario,TarefaStatus tarefaStatus) {
+	public Tarefa(Long id, String name, String descricao, Date dataVencimento, Funcionario funcionario) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.descricao = descricao;
 		this.dataVencimento = dataVencimento;
 		this.funcionario = funcionario;
-		setTarefaStatus(tarefaStatus);
 	}
 
 	public Long getId() {
@@ -83,16 +81,6 @@ public class Tarefa implements Serializable{
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
-	}
-	
-	public TarefaStatus getTarefaStatus() {
-		return TarefaStatus.valueOf(tarefaStatus);
-	}
-	
-	public void setTarefaStatus(TarefaStatus tarefaStatus) {
-		if(tarefaStatus!=null) {
-			this.tarefaStatus = tarefaStatus.getCode();
-		}
 	}
 
 	@Override

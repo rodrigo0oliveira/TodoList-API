@@ -70,6 +70,7 @@ public class TarefaService {
 		entity.setDescricao(tarefa.getDescricao());
 		entity.setFuncionario(tarefa.getFuncionario());
 		entity.setDescricao(tarefa.getDescricao());
+		entity.setDataVencimento(tarefa.getDataVencimento());
 		
 	}
 

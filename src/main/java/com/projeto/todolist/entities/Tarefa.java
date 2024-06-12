@@ -1,8 +1,10 @@
 package com.projeto.todolist.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.Instant;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +26,8 @@ public class Tarefa implements Serializable{
 	
 	private String name;
 	private String descricao;
-	private Date dataVencimento;
+	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'",timezone = "GMT")
+	private Instant dataVencimento;
 	
 	
 	@ManyToOne
@@ -34,7 +37,7 @@ public class Tarefa implements Serializable{
 	public Tarefa() {
 	}
 
-	public Tarefa(Long id, String name, String descricao, Date dataVencimento, Funcionario funcionario) {
+	public Tarefa(Long id, String name, String descricao, Instant dataVencimento, Funcionario funcionario) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,7 +58,7 @@ public class Tarefa implements Serializable{
 		return descricao;
 	}
 
-	public Date getDataVencimento() {
+	public Instant getDataVencimento() {
 		return dataVencimento;
 	}
 
@@ -75,7 +78,7 @@ public class Tarefa implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public void setDataVencimento(Date dataVencimento) {
+	public void setDataVencimento(Instant dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
 

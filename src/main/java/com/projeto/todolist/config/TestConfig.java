@@ -24,8 +24,7 @@ public class TestConfig implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-		
+	
 		
 		Funcionario func1 = new Funcionario(null,"Rodrigo","Dev");
 		Funcionario func2 = new Funcionario(null,"João","CEO");
